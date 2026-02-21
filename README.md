@@ -52,7 +52,7 @@ MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrit
 
 The frontend sends requests to `/api/contact`.
 
-- For local full-stack run (`npm run dev` from root), you usually **do not need** to set anything.
+- For local full-stack run (`npm run dev:full` from root), you usually **do not need** to set anything.
 - If frontend and backend run on different domains/ports in your setup, create `client/.env`:
 
 ```env
@@ -64,7 +64,7 @@ VITE_API_URL=http://localhost:5000
 From project root (`CLIENT`):
 
 ```bash
-npm run dev
+npm run dev:full
 ```
 
 This starts both:
@@ -75,6 +75,7 @@ This starts both:
 Other useful commands:
 
 ```bash
+npm run dev      # backend only (Render-safe)
 npm run client   # only frontend
 npm run server   # only backend
 npm run build    # build frontend

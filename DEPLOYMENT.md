@@ -23,3 +23,4 @@ If backend starts successfully, contact form submissions are stored in Atlas col
 
 - Set the same env vars in your hosting provider for the backend service.
 - Ensure frontend API points to deployed backend URL by setting `VITE_API_URL` in frontend environment (only needed when not using same-domain proxy).
+- On Render backend service, use **Start Command**: `npm start` (not `npm run dev`).

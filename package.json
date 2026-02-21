@@ -4,11 +4,13 @@
   "description": "Sakthi Dental Clinic MERN Website",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev": "npm run start --prefix server",
+    "dev:full": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "client": "npm run dev --prefix client",
     "server": "npm run dev --prefix server",
     "build": "npm run build --prefix client",
-    "start": "npm run start --prefix server"
+    "start": "npm run start --prefix server",
+    "postinstall": "npm install --prefix server"
   },
   "keywords": [],
   "author": "",
