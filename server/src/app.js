@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
@@ -12,6 +14,16 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api/contact', contactRoutes);
+
+const clientDistPath = path.resolve(__dirname, '../../client/dist');
+
+if (process.env.NODE_ENV === 'production' && fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+
+  app.get(/^\/(?!api).*/, (req, res) => {
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
 
 app.use((err, req, res, next) => {
   console.error(err);
